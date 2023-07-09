@@ -13,4 +13,6 @@ years = float(input("Enter total loan period in years:")) #here instead of conve
 months = years*12
 print("Your load period in months is " + str(months))
 EMI = (float(House_Value)-float(H_down_amount))*(Rate/100/12)*((1+(Rate/100/12))**months)/(((1+(Rate/100/12))**(months))-1)
-print("Your monthly EMI amount is" + str(round(EMI,2)) + " rupees")
+#print("Your monthly EMI amount is" + str(round(EMI,2)) + " rupees")
+#f-string - instead of converting all the different data types to str again and again we can use f-string
+print(f"Your monthly EMI amount is {round(EMI, 2)}")
