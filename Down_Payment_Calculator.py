@@ -22,3 +22,8 @@ EMI = (float(House_Value)-float(H_down_amount))*(Rate/100/12)*((1+(Rate/100/12))
 #print("Your monthly EMI amount is" + str(round(EMI,2)) + " rupees")
 #f-string - instead of converting all the different data types to str again and again we can use f-string
 print(f"Your monthly EMI amount is {round(EMI, 2)}")
+
+#Calculate total amount paid by customer at the end of their loan period
+#T_incurred_cost = EMI*months + F_down_amount
+#print(f"Customer has paid total {T_incurred_cost} rupees at the end of {months} months" )
+#print("You have paid "+ str(round((T_incurred_cost - float(House_Value)),2)) + " rupees extra")
