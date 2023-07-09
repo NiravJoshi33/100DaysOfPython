@@ -19,3 +19,8 @@ elif BMI <= 35:
     print("You are obsese!")
 else:
     print("You are clinically obese!")
+
+app = input("Would you like to book an appointment with our doctor? Please reply in Y or N ")
+if app == "Y":
+    #book appointment
+    print("Your appointment is booked with us")
