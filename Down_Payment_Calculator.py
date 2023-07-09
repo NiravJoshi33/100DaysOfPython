@@ -1,4 +1,6 @@
 #Weloome to Down Payment Calculator
+
+#Reference for the theory: https://cleartax.in/s/down-payment-calculator#:~:text=For%20example%2C%20you%20want%20to,00%2C000%20*%200.01%20%3D%20Rs%2040%2C000.
 House_Value = input("Enter the value of the house in rupees:")
 down = input("Enter the percentage of down payment you'd like to make:")
 processing_fees = 1 #processing fee on remaining amount in percentage
