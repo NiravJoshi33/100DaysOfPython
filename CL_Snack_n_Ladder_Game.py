@@ -1,6 +1,15 @@
 #Welcome to Command Line Snake & Ladder Game
 import random
 
+#print ASCII art
+print('''
+         _                   .-=-.          .-==-.
+        { }      __        .' O o '.       /  -<' )
+        { }    .' O'.     / o .-. O \     /  .--v`
+        { }   / .-. o\   /O  /   \  o\   /O /
+         \ `-` /   \ O`-'o  /     \  O`-`o /
+          `-.-`     '.____.'       `.____.
+      ''')
 
 P1_pos = 0 #Player 1 initial position is cell no. 0
 
