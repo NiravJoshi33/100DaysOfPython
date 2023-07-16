@@ -361,6 +361,8 @@ def compare(A,B):
 while A != 0:
     A = compare(A, B)
     B = random.choice(data)
+    while A == B:
+        B = random.choice(data)
     score = score + 1
 
 print("You lose")
