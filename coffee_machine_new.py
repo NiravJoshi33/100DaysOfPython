@@ -13,6 +13,9 @@ available_milk = 600
 Money = 0
 
 def report():
+    '''
+    gives report of the available resources in the coffee machine
+    '''
     print("Please find the below report:")
     print(f"Available Water = {available_water}")
     print(f"Available Coffee = {available_coffee}")
@@ -20,10 +23,14 @@ def report():
     print(f"Collected Money = {Money}")
 
 def check_res(coffee1):
+    '''
+    Checks if the available resources are sufficient for the coffee
+    '''
     req_water1 = data[coffee1]['Water']
     req_coffee1 = data[coffee1]['Coffee']
     req_milk1 = data[coffee1]['Milk']
 
+    # We need to stop the machine and output the message about the insufficient ingredient
     if req_water1 < available_water and req_coffee1 < available_coffee and req_milk1 < available_milk:
         return True
     if req_water1 > available_water:
@@ -34,6 +41,9 @@ def check_res(coffee1):
         return("milk")
 
 def process_coins(coffee3):
+        '''
+        Asks for the coins and calculates the total value of inserted coins
+        '''
         print(f"Please insert the coins, the required amount is {data[coffee3]['Price']}:\n")
         quarters = float(input("Please enter no. of quarters:"))
         dimes = float(input("Please insert no. of dimes: "))
@@ -43,6 +53,9 @@ def process_coins(coffee3):
         return(total_coin_value)
 
 def make_coffee(coffee2):
+    '''
+    Deducts the used resources from available resources
+    '''
     available_water1 = available_water - data[coffee2]['Water']
     available_coffee1 = available_coffee - data[coffee2]['Coffee']
     available_milk1 = available_milk - data[coffee2]['Milk']
@@ -59,7 +72,7 @@ while cont == True:
         report()
     elif coffee == "Off":
         cont = False
-    elif coffee == "Espresso" or coffee == "Latte" or coffee == "Cappuccino":
+    elif coffee == "Espresso" or coffee == "Latte" or coffee == "Cappuccino": #This is to make sure that any input other than desired ones should go into next else condition 
         res = check_res(coffee)
         print("resources checked")
         if res == "water":
@@ -73,11 +86,11 @@ while cont == True:
             print("Sorry, We are out of milk")
         elif res == True:
             collected_coins = process_coins(coffee)
-            while collected_coins < data[coffee]['Price']:
+            while collected_coins < data[coffee]['Price']:  # Ask again if insifficient coins entered
                 print("Entered amount is insufficient. Please collect your refund.")
                 print("Please insert the coins again:")
                 collected_coins = process_coins()
-            if collected_coins > data[coffee]['Price']:
+            if collected_coins > data[coffee]['Price']: # Refund if more money is inserted
                 return_coins = collected_coins - data[coffee]['Price']
                 print(f"Please collect your change: {return_coins:.2f}")
             Money = Money + data[coffee]['Price']
