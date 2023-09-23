@@ -18,7 +18,9 @@ while len(correct_states) < 28:
     user_answer = screen.textinput(title='Guess the state name', prompt='Enter the name of state:').title()
     print(user_answer)
     
-    if user_answer in correct_states:
+    if user_answer == 'Exit':
+        break
+    elif user_answer in correct_states:
         pass
     elif user_answer in states:
         correct_states.append(user_answer)
@@ -31,6 +33,13 @@ while len(correct_states) < 28:
         print(f'y coordinate is {y_state}')
         t.goto(x_state, y_state)
         t.write(user_answer)
+
+states_to_learn = []
+for state in states:
+    if state not in correct_states:
+        states_to_learn.append(state)
+
+pd.DataFrame(states_to_learn).to_csv('india_states_game/States_to_learn.csv')
 #print(data)
 
 
