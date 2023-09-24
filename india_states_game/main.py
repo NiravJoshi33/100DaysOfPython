@@ -15,7 +15,7 @@ states = data['State'].to_list()
 correct_states = []
 
 while len(correct_states) < 28:
-    user_answer = screen.textinput(title='Guess the state name', prompt='Enter the name of state:').title()
+    user_answer = screen.textinput(title=f'{len(correct_states)} out of 28 Guessed', prompt='Enter the name of state:').title()
     print(user_answer)
     
     if user_answer == 'Exit':
@@ -34,10 +34,12 @@ while len(correct_states) < 28:
         t.goto(x_state, y_state)
         t.write(user_answer)
 
-states_to_learn = []
-for state in states:
-    if state not in correct_states:
-        states_to_learn.append(state)
+# states_to_learn = []
+# for state in states:
+#     if state not in correct_states:
+#         states_to_learn.append(state)
+
+states_to_learn = [state for state in states if state not in correct_states]
 
 pd.DataFrame(states_to_learn).to_csv('india_states_game/States_to_learn.csv')
 #print(data)
